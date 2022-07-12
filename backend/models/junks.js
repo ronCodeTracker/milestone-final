@@ -8,9 +8,10 @@ const junkSchema = new mongoose.Schema({
     pic: { type: String, default: 'http://placekitten.com/350/350' },
     price: { type: String, required: false, default: 'none' },
     receipt: { type: String, default: 'none' },
-    datepurchased: { type: String, default: 'USA' },
+    datepurchased: { type: String, default: '0 bc' },
     
     }
 })
 
 
+module.exports = mongoose.model('Junk', placeSchema)
