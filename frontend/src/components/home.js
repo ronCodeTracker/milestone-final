@@ -4,7 +4,6 @@ import Container from 'react-bootstrap/Container';
 import Garage from './garage.js';
 import Attic from './attic.js';
 import Basement from './basement.js';
-import Junk from './junk.js';
 
 
 export default function Home () {
