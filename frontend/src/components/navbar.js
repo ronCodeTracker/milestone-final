@@ -10,7 +10,7 @@ import Home from './home.js';
 import Garage from './garage.js';
 import Attic from './attic.js';
 import Basement from './basement.js';
-import Junk from './junk.js';
+import Create from './create.js';
 import Login from './login.js';
 import Search from './search.js';
 
@@ -29,7 +29,7 @@ function NavBar() {
                       navbarScroll
                   >
                       <Nav.Link href="/">Home</Nav.Link>
-                      <Nav.Link href="/junk">Junk</Nav.Link>
+                      <Nav.Link href="/junk">create</Nav.Link>
                       <NavDropdown title="Rooms" id="navbarScrollingDropdown">
                           <NavDropdown.Item href="/garage">Garage</NavDropdown.Item>
                           <NavDropdown.Item href="/attic">
@@ -55,7 +55,7 @@ function NavBar() {
       </Navbar><div className="Display">
               <Routes>
                   <Route path="/" element={<Home />} />
-                  <Route path="/junk" element={<Junk />} />
+                  <Route path="/create" element={<Create />} />
                   <Route path="/garage" element={<Garage />} />
                   <Route path="/attic" element={<Attic />} />
                   <Route path="/basement" element={<Basement />} />
