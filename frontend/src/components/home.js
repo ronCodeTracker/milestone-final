@@ -1,9 +1,6 @@
 
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
-import Garage from './garage.js';
-import Attic from './attic.js';
-import Basement from './basement.js';
 
 
 export default function Home () {
@@ -18,9 +15,7 @@ export default function Home () {
                     </Card.Body>
                 </Card>
                     <body>
-                        <Garage />
-                        <Attic />
-                        <Basement />
+                        
                     </body>
                 </Container>
                 </div>
