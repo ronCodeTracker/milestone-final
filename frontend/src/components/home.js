@@ -1,6 +1,6 @@
-
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
+import Create from './create.js';
 
 
 export default function Home () {
@@ -14,9 +14,9 @@ export default function Home () {
                         </Card.Text>
                     </Card.Body>
                 </Card>
-                    <body>
-                        
-                    </body>
+                <body>
+                    <Create />
+                </body>
                 </Container>
                 </div>
     )
