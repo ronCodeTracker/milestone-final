@@ -5,7 +5,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Home from './home.js';
 import Create from './create.js';
 import Login from './login.js';
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 
 function NavBar() {
   return (
@@ -23,11 +23,11 @@ function NavBar() {
         </Navbar.Collapse>
       </Container>
     </Navbar>
-    </><div className="Display">
+    </><div className="Navigation">
       <BrowserRouter>  
-        <Route path="/" element={<Home />} />
-        <Route path="new-junk" element={<Create />} />
-        <Route path="login" element={<Login />} />
+        <Link to="/" exact component={Home} />
+        <Link to="login" exact component={Login} />
+        <Link to="new-junk" exact component={Create} />
     </BrowserRouter> 
   </div></>
   );

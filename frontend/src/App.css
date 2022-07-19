@@ -26,7 +26,7 @@
 }
 
 .home {
-  padding-top: 30vh;
+  padding-top: 10vh;
   font-size: .8vw;
   align-content: center;
   color: rgb(72, 146, 243);
@@ -35,5 +35,5 @@
 .cards {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: right;
 }
