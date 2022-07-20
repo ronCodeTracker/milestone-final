@@ -5,7 +5,8 @@ require('dotenv').config()  //configuration
 // include express
 
 const express = require("express")
-
+const passport = require("passport");
+require("./config/passport")(passport);
 
 const app = express();// put express in a variable call 'app'
 
