@@ -14,6 +14,7 @@ const passport = require("passport");
 
 
 
+
 router.use(bodyParser.json())
 router.use(bodyParser.urlencoded({
     extended: true
@@ -146,6 +147,9 @@ router.put('/update', passport.authenticate("jwt", { session: false }), (req, re
     * Do not let the user input any data they want
     * Give them specifics and rehash password
     */
+    if (!req.body.password){
+        return res.status(400).json({error: "Full form data required"})
+    }
     let updates = new Object({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
