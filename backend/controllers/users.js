@@ -92,7 +92,7 @@ router.post('/login',  (req, res) => {
         if (!user) {
             return res.status(404).json({error: "Could not find account with given email address"})
         }
-        bcrypt.compare(password, user.password).then(success => {
+        bcrypt.compare(password, user.passwordDigest).then(success => {
             if (success) {
                 const payload = {
                     id: user.id,
@@ -107,7 +107,7 @@ router.post('/login',  (req, res) => {
             } else {
                 return res.status(400).json({error: "Password is incorrect"})
             }
-        })
+        }).catch(err => res.status(400).json({error: err}))
     })
 })
 
