@@ -1,8 +1,13 @@
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
+import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
-function createCard() {
+function Post() {
+    const { id } = useParams()
+    const [postData, setPostData] = useState([])
   return (
+      
     <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
       <Card.Body>
@@ -25,4 +30,4 @@ function createCard() {
   );
 }
 
-export default createCard;
+export default Post;
