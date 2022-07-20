@@ -29,7 +29,7 @@ app.use(methodOverride('_method'))
 
 // junk
 app.use('/junk', require('./controllers/junk'))
-
+app.use('/users', require('./controllers/users'))
 
 //app.use(express.json())
 /*************************************************** */
