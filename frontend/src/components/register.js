@@ -17,7 +17,7 @@ function RegisterForm () {
                 </Card>
                 
                 </Container>
-          </header><div className="container" style={{ marginTop: '50px', width: '700px' }}>
+          </header><div className="container" style={{ marginTop: '20px', width: '700px' }}>
           <Form>
               <Form.Group className="mb-3" controlId="formGroupEmail">
                   <Form.Label>Name</Form.Label>

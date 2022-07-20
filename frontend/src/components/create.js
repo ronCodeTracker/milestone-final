@@ -1,32 +1,48 @@
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
+import Container from 'react-bootstrap/Container';
 import { useParams } from 'react-router-dom';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 import { useEffect, useState } from 'react';
 
 function Post() {
     const { id } = useParams()
     const [postData, setPostData] = useState([])
   return (
-      
-    <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
-      <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-      </Card.Body>
-      <ListGroup className="list-group-flush">
-        <ListGroup.Item>Cras justo odio</ListGroup.Item>
-        <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-        <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
-      </ListGroup>
-      <Card.Body>
-        <Card.Link href="#">Card Link</Card.Link>
-        <Card.Link href="#">Another Link</Card.Link>
-      </Card.Body>
-    </Card>
+      <><header>
+            <Container>
+                <Card border="info" >
+                    <Card.Body>
+                        <Card.Text style={{ marginTop: '40px', fontSize: "2.5em" }}>
+                            New Junk
+                        </Card.Text>
+                    </Card.Body>
+                </Card>
+            </Container>
+      </header><div className="container" style={{ marginTop: '20px', width: '700px' }}>
+      <Form>
+              <Form.Group className="mb-3" controlId="formGroupName">
+                  <Form.Label>Name of Junk</Form.Label>
+                  <Form.Control type="name" placeholder="Enter name" />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="formGroupDescription">
+                  <Form.Label>Desciption</Form.Label>
+                  <Form.Control type="email" placeholder="Description" />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="formGroupPicture">
+                  <Form.Label>Picture</Form.Label>
+                  <Form.Control type="password" placeholder="Image Url" />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="formGroupplace">
+                  <Form.Label>Where is the junk?</Form.Label>
+                  <Form.Control type="password" placeholder="Place" />
+              </Form.Group>
+              <Button variant="primary" type="submit">
+                  Done
+              </Button>
+          </Form>
+          </div></>
   );
 }
 
