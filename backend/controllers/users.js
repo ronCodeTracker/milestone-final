@@ -38,23 +38,15 @@ router.post('/register', async (req, res) => {
     const email = req.body.email
     const password = req.body.password
 
+    if ((firstName === undefined) || (lastName === undefined) || (email === undefined) || (password === undefined)) {
+        return res.status(400).json({error: "One or more required fields are empty"})
+    }
     //Check for existing users with email
     db2.User.findOne({ email: email }).then(user => {
         if (user) {
             return res.status(400).json({error: "Email is already in use"})
         }
     })
-
-    /*
-    //let { password, ...rest } = req.body
-    //let userObject = {}
-    //console.log("password: ", password)
-    //console.log("...rest: ", rest)
-    then we need to create in db mongo a collection of data with both password and the rest
-    of the req.body or ...rest, I guess.
-    how to add both in mongoose to collection is the problem
-    */
-
 
     let passwordDigest = hashUserPassword(password)
 
@@ -71,10 +63,8 @@ router.post('/register', async (req, res) => {
     console.log("hash:  " + passwordDigest)
     db2.User.create(objectUser)
         .then((user) => {
-            
             console.log(user)
             return res.json(user)
-
         })
         .catch(err => {
             console.log("err", err)
