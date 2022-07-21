@@ -10,6 +10,12 @@ require("./config/passport")(passport);
 
 const app = express();// put express in a variable call 'app'
 
+// Heroku deploy *****************
+
+//const path = require("path");
+
+//******************************* */
+
 const PORT = process.env.PORT// env file assign
 
 // ?  
@@ -31,6 +37,18 @@ app.use(methodOverride('_method'))
 // junk
 app.use('/junk', require('./controllers/junk'))
 app.use('/users', require('./controllers/users'))
+
+
+// Heroku deployment  *****************
+
+// Step 1:
+// app.use(express.static(path.resolve(__dirname, "./client/build")));
+// // Step 2:
+// app.get("*", function (request, response) {
+//   response.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
+// });
+
+//**************************************
 
 //app.use(express.json())
 /*************************************************** */
