@@ -15,8 +15,8 @@ const userSchema = new Schema({
         required: false
     },
     lastName: { type: String },
-    email: { type: String },
-    passwordDigest: { type: String }
+    email: { type: String, required: true},
+    passwordDigest: { type: String, required: true }
    
 
 })
