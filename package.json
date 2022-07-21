@@ -1,7 +1,21 @@
 {
-  "name": "$name$",
-  "version": "$version$",
-  "dependencies": {
-    $END$
-  }
+  "name": "junk-in-the-houseone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:frontend":"npm --prefix frontend run build",
+    "build:backend":"npm --prefix backend run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ronCodeTracker/milestone-final.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ronCodeTracker/milestone-final/issues"
+  },
+  "homepage": "https://github.com/ronCodeTracker/milestone-final#readme"
 }
