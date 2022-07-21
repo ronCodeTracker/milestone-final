@@ -6,9 +6,12 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { useEffect, useState } from 'react';
 
-function Post() {
-    const { id } = useParams()
-    const [postData, setPostData] = useState([])
+function Post({handleSubmit}) {
+   
+        let [postData, setPostData] = useState({ formGroupName: '', formGroupDescription: '', formGroupPicture: '', formGroupPlace: '' })
+        const clear = () => {
+            setPostData({ formGroupName: '', formGroupDescription: '', formGroupPicture: '', formGroupPlace: '' })
+        }
   return (
       <><header>
             <Container>
@@ -28,15 +31,15 @@ function Post() {
               </Form.Group>
               <Form.Group className="mb-3" controlId="formGroupDescription">
                   <Form.Label>Desciption</Form.Label>
-                  <Form.Control type="email" placeholder="Description" />
+                  <Form.Control type="description" placeholder="Description" />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formGroupPicture">
                   <Form.Label>Picture</Form.Label>
-                  <Form.Control type="password" placeholder="Image Url" />
+                  <Form.Control type="url" placeholder="Image Url" />
               </Form.Group>
-              <Form.Group className="mb-3" controlId="formGroupplace">
+              <Form.Group className="mb-3" controlId="formGroupPlace">
                   <Form.Label>Where is the junk?</Form.Label>
-                  <Form.Control type="password" placeholder="Place" />
+                  <Form.Control type="description" placeholder="Place" />
               </Form.Group>
               <Button variant="primary" type="submit">
                   Done

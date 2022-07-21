@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Home from './home.js';
-import Create from './create.js';
+import Create from './junkform.js';
 import Login from './login.js';
 import Register from './register.js';
 import { BrowserRouter } from 'react-router-dom'
