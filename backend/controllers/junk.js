@@ -9,9 +9,8 @@ const passport = require("passport")
 router.use(bodyParser.json())
 router.use(bodyParser.urlencoded({
     extended:true
-}
-
-))
+    })
+)
 
 // @route POST junk/add_junk
 // @desc Add junk to the database
@@ -25,13 +24,26 @@ router.post("/add_junk", passport.authenticate("jwt", { session: false }), (req,
     }
     db.Junk.create(newJunk)
         .then((placeVar) => {
-            console.log("placeVar: ", placeVar)
-            res.json(newJunk)
+            //console.log("placeVar: ", placeVar)
+            res.status(200).json(newJunk)
         })
         .catch(err => {
             console.log('err', err)
-            //res.json(req.body)
+            res.status(400).json({error: err})
         })
+})
+
+// @route GET junk/userId
+// @desc Get all of a user's junk by the user's id
+// @access Public
+router.get('/:userId', (req, res) => {
+    db.Junk.find({ ownerid: req.params.userId }, (err, junks) => {
+        if (err) {
+            res.status(400).json({error: err})
+        } else {
+            res.status(200).json(junks)
+        }
+    })
 })
 
 // @route GET junk/
@@ -46,12 +58,10 @@ router.get('/', (req, res) => {
 // @desc Get junk by id
 // @access Public
 router.get('/:junkId', (req, res) => {
-
     let junkId = req.params.junkId
     if (!junkId) {
         res.status(404).json({ message: `no id found` })
     } else {
-
         db.Junk.findOne({ "_id": junkId })
             .then((id) => {
                 if (!id) {
@@ -72,10 +82,8 @@ router.put('/:junkId', passport.authenticate("jwt", { session: false }), (req, r
     if (!junkId) {
         res.json({ message: `no id found` })
     } else {
-
         db.Junk.findOne({ "_id": junkId })
             .then((id) => {
-
                 if (!id) {
                     res.status(404).json({ message: `Could not find junk with id "${junkId}"` })
                 } else {
@@ -94,7 +102,6 @@ router.put('/:junkId', passport.authenticate("jwt", { session: false }), (req, r
 // @desc Delete junk by id
 // @access Authorized
 router.delete('/:junkId', passport.authenticate("jwt", { session: false }), (req, res) => {
-
     let junkId = req.params.junkId
     console.log('junkId:  ',  junkId)
     if (!junkId) {
@@ -104,7 +111,7 @@ router.delete('/:junkId', passport.authenticate("jwt", { session: false }), (req
         db.Junk.findOne({ "_id": junkId })
             .then((id) => {
                 if (!id) {
-                    res.status(404).json({ message: `Could not find junk with id "${placeId}"` })
+                    res.status(404).json({ message: `Could not find junk with id "${junkId}"` })
                 }
                 else {
                     if (id.ownerid !== getUserDataFromToken(req.headers["authorization"]).id) {
@@ -112,7 +119,7 @@ router.delete('/:junkId', passport.authenticate("jwt", { session: false }), (req
                     }
                     db.Junk.findByIdAndRemove(req.params.junkId)
                         .then(() => res.json("Junk Deleted )= "))
-                        .catch(err => res.status(400).json("Error: " + err))
+                        .catch(err => res.status(400).json({error: err}))
                 }
 
 

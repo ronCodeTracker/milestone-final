@@ -14,8 +14,9 @@ const junkSchema = new Schema({
     pic: { type: String, default: 'http://placekitten.com/350/350' },
     price: { type: Number, default: 0 },
     receipt: { type: String, default: "none" },
-    datepurchased: { type: String, default: '0 bc' }
-    
+    datepurchased: { type: String, default: '0 bc' },
+    ownerid: { type: String, default: '_001'}
+    //Set default ownerid to an admin's id so the data isn't parentless
     
 })
 
