@@ -7,6 +7,11 @@ import Login from './components/login.js';
 import JunkForm from './components/junkform.js';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import axios from 'axios'
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
+
 
 function App() {
   let [data, setData] = useState([])

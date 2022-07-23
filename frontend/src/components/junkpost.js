@@ -1,6 +1,13 @@
 import Card from 'react-bootstrap/Card';
+import Container from 'react-bootstrap/Container';
 
-const Post = (props) => {
+const JunkPost = (props) => {
+
+    const display = props.data.map((data, i ) => {
+        return(
+            alsjkdf
+        )
+    })
 
     return(
     <Card style={{ width: '18rem' }}>
@@ -16,7 +23,8 @@ const Post = (props) => {
         <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
         <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
       </ListGroup>
+      </Card>
     )
 }
 
-export default Post
+export default JunkPost
