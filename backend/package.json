@@ -7,8 +7,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
     "publishToHeroku": "cd ../ && git subtree push --prefix backend heroku-app-backend2999 main || true"
-    
-    
   },
   "author": "",
   "license": "ISC",
@@ -17,7 +15,6 @@
     "body-parser": "^1.20.0",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
-    "express-react-views": "^0.11.0",
     "jsonwebtoken": "^8.5.1",
     "method-override": "^3.0.0",
     "mongoose": "^6.4.4",

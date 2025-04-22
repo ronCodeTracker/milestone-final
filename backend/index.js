@@ -16,7 +16,7 @@ const app = express();// put express in a variable call 'app'
 
 //******************************* */
 
-const PORT = process.env.PORT// env file assign
+const PORT = process.env.PORT || 8080;// env file assign
 
 // ?  
 const methodOverride = require('method-override')
@@ -25,7 +25,7 @@ const methodOverride = require('method-override')
 //app.set('views', __dirname + '/views')
 
 app.set('view engine', 'jsx')
-app.engine('jsx', require('express-react-views').createEngine())
+//app.engine('jsx', require('express-react-views').createEngine())
 app.use(express.static('public'))
 
 //Middleware
